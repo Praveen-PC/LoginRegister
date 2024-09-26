@@ -19,7 +19,7 @@ const Register = () => {
       setGender('male'),
       setPassword('')
       navigate('/login')
-    }catch{
+    }catch(error){
       console.log(Error)
     }
 
