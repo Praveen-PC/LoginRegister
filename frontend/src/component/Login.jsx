@@ -3,8 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
-
 const Login = () => {
 
     const [email,setEmail]=useState('')
@@ -21,7 +19,6 @@ const Login = () => {
       }catch(error){
         console.log(error)
       }
-
     }
 
 
