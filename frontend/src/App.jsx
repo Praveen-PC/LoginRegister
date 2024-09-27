@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
 import Login from './component/Login'
 import Register from './component/Register'
