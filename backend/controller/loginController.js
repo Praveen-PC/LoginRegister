@@ -1,5 +1,6 @@
 const db=require('../model/db')
 
+
 const getall=(req,res)=>{ 
         const sql='SELECT * FROM loginregister.users'
         db.query(sql,(err,result)=>{
