@@ -35,7 +35,6 @@ const userValue=async(req,res)=>{
     const sql='INSERT INTo users (name,email,gender,password) VALUES (?,?,?,?)';
     await db.query(sql,[name,email,gender,hashpassword])
       res.status(200).send('user registerd')
-    
   }
   catch(err){
     console.log(err)

@@ -15,7 +15,7 @@ const Login = () => {
        const response= await axios.post('http://localhost:5000/api/login',{email,password});
         setEmail(''),
         setPassword('')
-        localStorage.getItem('token',response.data.token)
+        localStorage.setItem('token',response.data.token)
         alert('login successfully')
         navigate('/dashboard')
       }catch(error){

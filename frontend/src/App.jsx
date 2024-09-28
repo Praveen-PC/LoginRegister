@@ -7,13 +7,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
  
-
+  const token=localStorage.getItem('token')
   return (
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/dashboard' element={<Home/>}/>
-      <Route path="/login" element={<Login/>}/>
+      {token ?(      <Route path="/login" element={<Login/>}/>
+):(      <Route path='/dashboard' element={<Home/>}/>
+)}
       <Route path="/register" element={<Register/>}/> 
     </Routes>
     </BrowserRouter>
