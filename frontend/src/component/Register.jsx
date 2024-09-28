@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Login from "./Login";
+
 
 const Register = () => {
     const [name, setName] = useState('');
@@ -14,7 +16,7 @@ const Register = () => {
         e.preventDefault();
         
         try {
-            const response = await axios.post('http://localhost:5000/api/insert', { name, email, gender, password });
+            const response = axios.post('http://localhost:5000/api/insert', { name, email, gender, password });
             console.log('Response:', response.data); // Debugging response
             
             // Reset form fields
