@@ -2,6 +2,7 @@ import {BrowserRouter,Route,Routes} from 'react-router-dom'
 import Login from './component/Login'
 import Register from './component/Register'
 import Home from './component/Home'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
