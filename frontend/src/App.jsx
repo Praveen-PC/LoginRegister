@@ -6,8 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
- 
-  // const token=localStorage.getItem('token')
   return (
     <>
     <BrowserRouter>

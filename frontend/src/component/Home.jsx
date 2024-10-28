@@ -1,12 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useTransition ,useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Login from "./Login";
+import { Toast } from "bootstrap";
 
 
 
 
 const Home = () => {
    const navigate=useNavigate()
+   const [tokenvalue,setTokenvalue]=useState('')
+
+     useEffect(()=>{
+      const token=localStorage.getItem('token')
+      setTokenvalue(token)
+      if(!token){
+        navigate('/login')
+      }
+     },[navigate])
 
 
       const handleLogout=()=>{
@@ -31,6 +41,7 @@ const Home = () => {
       </nav>
 
     <h1 className="mt-5 text-center">DashBoard</h1>
+    <p>token : {tokenvalue}</p>
     </>
   );
 };
