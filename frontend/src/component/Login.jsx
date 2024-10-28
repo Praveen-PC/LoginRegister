@@ -8,9 +8,19 @@ const Login = () => {
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const navigate=useNavigate()
+    const [error,seterror] =useState({})
+    const [finalerror,setfinalerror]=useState('')
 
     const handleSubmit=async(e)=>{
       e.preventDefault()
+
+      const newerrors={}
+      if(!email) newerrors.email="Email is required"
+      if (!password) newerrors.password="Password is required"
+      seterror(newerrors)
+      if(Object.keys(newerrors).length>0){
+        return
+      }
       try{
        const response= await axios.post('http://localhost:5000/api/login',{email,password});
         setEmail(''),
@@ -20,6 +30,7 @@ const Login = () => {
         navigate('/dashboard')
       }catch(error){
         console.log(error)
+        setfinalerror("invalid credentials")
       }
     }
 
@@ -39,9 +50,9 @@ const Login = () => {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               value={email}
-              onChange={(e)=>setEmail(e.target.value)}
-              required
+              onChange={(e)=>setEmail(e.target.value)}  
             />
+            {error.email && <div className="text-danger">{error.email}</div> }
           </div>
           <div className="mb-3">
             <label for="exampleInputPassword1" className="form-label ">
@@ -52,17 +63,19 @@ const Login = () => {
               className="form-control "
               id="exampleInputPassword1"
               value={password}
-              onChange={(e)=>setPassword(e.target.value)}
-              required
+              onChange={(e)=>setPassword(e.target.value)}            
             />
+                {error.password && <div className="text-danger">{error.password}</div> }
           </div>
           <div className="d-flex align-items-center">
           <button type="submit" className="btn btn-primary ">
             Submit
-          </button>
-          
+          </button>  
           <Link to='/register' className="text-decoration-none mx-3">Register | New_User ?</Link>
           </div>
+          <div className="text-danger">{finalerror}</div>
+
+
          
         </form>
       </div>

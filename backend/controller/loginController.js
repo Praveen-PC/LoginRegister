@@ -4,19 +4,6 @@ const bcrypt=require('bcrypt')
 require ('dotenv').config()
 
 
-const getall=async(req,res)=>{ 
-        const sql='SELECT * FROM loginregister.users'
-        try{
-          const [row]=  await  db.query(sql)
-           
-            res.status(200).send(row)
-          
-        } catch(err){
-          res.status(500).send({message:err})
-
-        }
-}
-
 
 const userlogin=async(req,res)=>{
   const {email,password}=req.body
@@ -32,8 +19,9 @@ const userlogin=async(req,res)=>{
       return res.status(400).send('invalid password')
     }
 
-    const token=jwt.sign({email:user.email},process.env.JWT_SECRET,{expiresIn:'1h'})
-    res.json(token)
+    const token=jwt.sign({email:user.email},process.env.JWT_SECRET,{expiresIn:'1d'})
+    // res.json(token)
+    res.status(200).send({auth:true,token})
     console.log(token)
   }
   catch(err){
@@ -45,7 +33,7 @@ const userlogin=async(req,res)=>{
 
 
 module.exports={
-    getall,
+    // getall,
     userlogin
 }
 
