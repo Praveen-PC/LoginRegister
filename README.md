@@ -1,3 +1,3 @@
 LoginRegister ,
-Mini cart functionality ,
-Crud operation
+ Mini cart functionality ,
+ Crud operation
