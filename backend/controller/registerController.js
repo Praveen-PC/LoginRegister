@@ -32,7 +32,7 @@ const userValue=async(req,res)=>{
   
   try{
     const hashpassword=await bcrypt.hash(password,10);
-    const sql='INSERT INTo users (name,email,gender,password) VALUES (?,?,?,?)';
+    const sql='INSERT INTO users (name,email,gender,password) VALUES (?,?,?,?)';
     await db.query(sql,[name,email,gender,hashpassword])
       res.status(200).send('user registerd')
   }
