@@ -17,7 +17,7 @@ const Sidenav = () => {
     <div className="bg-dark p-4 vh-100">
            <ul className='list-unstyled '>
         {sidenav.map((val,index)=>(
-             <li key={index} className="mb-4" >
+             <li key={index} className="mb-5" >
              <NavLink 
                  to={val.link}
                  style={{textDecoration:'none',color:"white",padding:'30px'}}  

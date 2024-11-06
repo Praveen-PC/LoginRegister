@@ -10,10 +10,10 @@ import Layouts from "./Layouts";
 
 
 
-const Home = () => {
+const Home = ({cartlength}) => {
   const navigate = useNavigate();
   const [tokenvalue, setTokenvalue] = useState("");
-  const [cartlength,setCartlength]=useState(0)
+  
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -34,7 +34,7 @@ const Home = () => {
         <div className="container-fluid">
               <a className="navbar-brand fw-bold" href="#">DashBoard</a>
               <div className="text-primary ">
-                <Link to={'/cart'} className="btn border-0" setCartlength ={setCartlength}> <span>{cartlength}</span> <i class="fa-solid fa-cart-shopping"></i></Link>
+                <Link to={'/cart'} className="btn border-0"> <span>{cartlength}</span> <i class="fa-solid fa-cart-shopping"></i></Link>
               <button className="btn border-0"><i class="fa-regular fa-user"></i></button>
               <button onClick={handleLogout} className="btn border-0"><i class="fa-solid fa-power-off"></i></button>
               </div>
